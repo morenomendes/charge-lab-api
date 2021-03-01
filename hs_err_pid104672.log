@@ -1,0 +1,33 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f2ea9f68375, pid=104672, tid=104687
+#
+# JRE version: OpenJDK Runtime Environment (15.0.1+9) (build 15.0.1+9-18)
+# Java VM: OpenJDK 64-Bit Server VM (15.0.1+9-18, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x4375]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x65
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/alan/git/charge-lab-api/core.104672)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:45959 -javaagent:/home/alan/eclipse/jee-2020-12/eclipse/configuration/org.eclipse.osgi/400/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 ca.charge.lab.App
+
+Host: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 5 cores, 9G, Ubuntu 20.04.1 LTS
+Time: Sun Feb 28 15:00:19 2021 PST elapsed time: 4531.693034 seconds (0d 1h 15m 31s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f2ea41d14c0):  JavaThread "Signal Dispatcher" daemon [_thread_in_vm, id=104687, stack(0x00007f2e7d88e000,0x00007f2e7d98f000)]
+
+Stack: [0x00007f2e7d88e000,0x00007f2e7d98f000],  sp=0x00007f2e7d98c1b0,  free space=1016k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x4375]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x65
+C  [libjimage.so+0x4f0e]  ImageFileReader::find_location_index(char const*, unsigned long long*) const+0x3e
+C  [libjimage.so+0x540c]  JIMAGE_FindResource+0xfc
+V  [libjvm.so+0x4e9f51]

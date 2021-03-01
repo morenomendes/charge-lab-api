@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres:9.6.15
+    environment:
+      POSTGRES_USER: charge-lab-postgres
+      POSTGRES_PASSWORD: charge-lab-postgres
+      POSTGRES_DB: charge-lab-database
+    ports:
+      - 5432:5432
+    expose:
+    - 5432
+    networks:
+      - postgres
+    restart: unless-stopped
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: postgres@postgres.ca
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - 5050:80
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge

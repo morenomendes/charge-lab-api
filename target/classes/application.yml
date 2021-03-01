@@ -1,0 +1,23 @@
+spring:
+  main:
+    #this configuration is to allow keycloak override HttpSessionManager
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/charge-lab-database?useSSL=false
+    username: charge-lab-postgres
+    password: charge-lab-postgres
+  jpa:
+    show-sql: true
+    open-in-view: false 
+    hibernate.ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate.jdbc.lob.non_contextual_creation: true
+      hibernate.format_sql: true 
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
